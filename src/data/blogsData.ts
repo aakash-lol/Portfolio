@@ -47,581 +47,668 @@ export type BlogBlock =
 
 export const blogsData: Blog[] = [
   {
-    title: "You Are Not Ready for Open Source Just Because You Want to Start",
-    date: "Jul 2026",
+    title: "Hi, I'm Aakash. This Is Probably Going to Be Longer Than It Needs to Be.",
+    date: "Sep 2026",
     claps: 0,
-    tags: ["Open Source", "AI", "Learning"],
-    link: "/blogs/ready-for-open-source",
+    tags: ["Introduction", "Software Engineering", "AI", "Building"],
+    link: "/blogs/about-aakash",
     isExternal: false,
-    slug: "ready-for-open-source",
-    readingTime: "12 min read",
+    slug: "about-aakash",
+    readingTime: "15 min read",
     description:
-      "A practical, field-tested path for becoming useful in open source: build fundamentals, join communities, communicate clearly, reproduce issues, and learn from real review.",
+      "A ridiculously long introduction to who I am, what I build, how I got into software, why I keep jumping between technologies, and what I am trying to become.",
     content: [
       {
         type: "paragraph",
-        text: "You are not ready for open source just because you want to start. You are ready when you can open a real codebase and not panic.",
+        text: "Hi. I'm Aakash.",
       },
       {
         type: "paragraph",
-        text: "Most people skip this part. They jump directly into issues, spam \"good first issue,\" copy-paste some AI-generated patch, and then wonder why their PR gets ignored. The truth is simple: open source does not reward excitement alone. It rewards preparation.",
+        text: "If you somehow ended up on this page, congratulations. You have voluntarily clicked into what is essentially me sitting down and yapping about myself for an unreasonable amount of time.",
+      },
+      {
+        type: "paragraph",
+        text: "I could write the normal developer introduction. You know the one. 'Hi, I'm Aakash, a passionate software developer interested in building scalable applications and solving real-world problems.' Then I could throw some technologies underneath it, add a GitHub link, mention AI approximately seventeen times, and call it a day.",
+      },
+      {
+        type: "paragraph",
+        text: "But that sounds incredibly boring.",
+      },
+      {
+        type: "paragraph",
+        text: "So instead, here is the unnecessarily long version.",
       },
       {
         type: "heading",
-        text: "First, sharpen your axe",
+        text: "So... what do I actually do?",
       },
       {
         type: "paragraph",
-        text: "Before you start contributing, spend months building your fundamentals. Not days. Not one weekend. Months.",
+        text: "I'm a software developer. More specifically, I'm the kind of developer who gets interested in something, spends way too much time understanding how it works, builds something with it, breaks something, fixes it, and then immediately gets distracted by another technology.",
       },
       {
         type: "paragraph",
-        text: "Learn how real apps are structured. Learn how data flows from the frontend to the backend. Learn why files live where they live. Learn how APIs talk to databases. Learn what auth really does. Learn why state management becomes messy. Learn why deployment breaks at the worst possible time.",
+        text: "My main world has been JavaScript and the web. I started with the usual path into frontend development, eventually got deeper into React, then Node.js and Express, then databases, authentication, APIs, deployment, and all the other things that magically appear once you stop making tutorial projects and start trying to build actual products.",
       },
       {
         type: "paragraph",
-        text: "This is the boring phase. But this is also the phase that quietly changes everything.",
+        text: "I've worked with React, Node.js, Express, MongoDB, PostgreSQL, Redis, Python, C++, JavaScript, TypeScript, Go, Flutter, Dart, Swift, Docker, Git, GitHub, and Linux.",
       },
       {
         type: "paragraph",
-        text: "Because once your fundamentals are strong, a codebase stops looking like random files and starts looking like a system.",
+        text: "That list probably makes it look like I have mastered all of them.",
+      },
+      {
+        type: "paragraph",
+        text: "I absolutely have not.",
+      },
+      {
+        type: "paragraph",
+        text: "And honestly, I think that is an important distinction.",
       },
       {
         type: "heading",
-        text: "Build one real thing first",
+        text: "I don't really believe in 'knowing everything'",
       },
       {
         type: "paragraph",
-        text: "Before touching a serious open-source repo, build one proper project of your own. Not a todo app.",
+        text: "One thing I have learned from building software is that the list of things you do not know grows faster than the list of things you know.",
       },
       {
         type: "paragraph",
-        text: "Build something that has real parts: TypeScript, React, auth, state, API routes, Prisma, PostgreSQL, deployment, and actual user flows.",
+        text: "Every time I think I understand something properly, I open a real codebase and discover approximately twelve new layers underneath it.",
       },
       {
         type: "paragraph",
-        text: "Something messy enough to teach you pain. Something real enough to break. Something serious enough that another engineer could review it and not immediately say, \"This is tutorial code.\"",
+        text: "You think you understand authentication until you have to deal with refresh tokens, cookies, sessions, OAuth, CSRF, mobile clients, expiration, and the weird bug that only happens when the user's phone wakes up after six hours.",
       },
       {
         type: "paragraph",
-        text: "Because until you have built something real, you will not understand why maintainers care so much about small details.",
-      },
-      {
-        type: "heading",
-        text: "Do the shadow-build",
+        text: "You think you understand APIs until an actual product needs validation, retries, rate limits, caching, permissions, logging, error handling, versioning, background jobs, and monitoring.",
       },
       {
         type: "paragraph",
-        text: "This is the part that changed everything for me. I thought I was ready. I had watched tutorials. I had written React. I felt kind of confident. Then I opened a real open-source repo, and suddenly it felt like I was reading another language.",
+        text: "You think you understand frontend until your perfectly normal UI has to work on five screen sizes, three browsers, dark mode, slow internet, bad APIs, and a device that somehow has a 17:9 aspect ratio.",
       },
       {
         type: "paragraph",
-        text: "That was the moment I realized I was not ready. So I went back.",
-      },
-      {
-        type: "paragraph",
-        text: "I started cloning a project from Code With Antonio, but I added one rule for myself: I would not just copy the project. I would build my own idea in parallel.",
-      },
-      {
-        type: "paragraph",
-        text: "Whatever I built in the clone, I had to translate into my own product. If the clone had database work, I had to design the schema for my own idea. If the clone had frontend work, I had to build my own version of that flow. If the clone had auth, API routes, deployment, or state management, I had to understand it deeply enough to apply it somewhere else.",
-      },
-      {
-        type: "paragraph",
-        text: "The loop was simple.",
-      },
-      {
-        type: "list",
-        items: ["Clone.", "Understand.", "Translate.", "Build your own."],
-      },
-      {
-        type: "paragraph",
-        text: "It was slow. It was frustrating. It was brutal. But it worked.",
-      },
-      {
-        type: "paragraph",
-        text: "Because after a point, I was no longer copying code. I was understanding decisions. I was seeing patterns. I was learning how real builders think.",
-      },
-      {
-        type: "paragraph",
-        text: "And when I opened that scary open-source repo again, it finally started reading like English.",
-      },
-      {
-        type: "heading",
-        text: "This matters even more now",
-      },
-      {
-        type: "paragraph",
-        text: "In the AI era, everyone can generate code. That is not the hard part anymore.",
-      },
-      {
-        type: "paragraph",
-        text: "The hard part is knowing what code should exist in the first place.",
-      },
-      {
-        type: "paragraph",
-        text: "LLMs can write a function for you, but they will not magically give you taste. They will not teach you why a system is designed a certain way. They will not make you good at reading unfamiliar codebases. They will not tell you when not to build something.",
-      },
-      {
-        type: "paragraph",
-        text: "AI can help you move faster. But fundamentals decide whether you are moving in the right direction.",
-      },
-      {
-        type: "heading",
-        text: "The real moat",
-      },
-      {
-        type: "paragraph",
-        text: "Open source is not about rushing into random issues. It is about becoming useful inside someone else's system.",
-      },
-      {
-        type: "paragraph",
-        text: "And to become useful, you need fundamentals, one real project, and enough patience to sit with a codebase until it stops feeling scary.",
+        text: "And then you realize software engineering is less about memorizing technologies and more about learning how to deal with problems you have never seen before.",
       },
       {
         type: "quote",
-        text: "In the AI era, fundamentals are the moat. AI is the multiplier. Sharpen the axe first. Then go contribute.",
+        text: "The more I learn, the more I realize that being a developer is mostly becoming comfortable with not knowing something yet.",
       },
       {
         type: "heading",
-        text: "Now you are ready to actually start open source",
+        text: "How I got into all of this",
       },
       {
         type: "paragraph",
-        text: "If you have fulfilled the points above, then yes, now you are ready to start open source. But not randomly. Not blindly. With direction.",
+        text: "I did not start with some grand plan of becoming a software engineer.",
       },
       {
         type: "paragraph",
-        text: "The next step is to join a good open-source community, or aim for a structured program like Google Summer of Code or Linux Foundation Mentorship. Most people suggest these programs for a reason. Open source is vast. It has too many organizations, too many repositories, too many projects, and too many threads. When you are starting out, you need direction, and these programs give you that. They give you mentors, project ideas, timelines, communication channels, and a reason to stay consistent.",
+        text: "It started with the usual curiosity. I wanted to understand how things worked. Then I wanted to make things. Then I realized that writing code meant I could actually turn an idea in my head into something other people could interact with.",
       },
       {
         type: "paragraph",
-        text: "But before you even start finding issues on GitHub, do one thing first. Join the community.",
-      },
-      {
-        type: "heading",
-        text: "Communication matters more in the AI era",
+        text: "That part completely hooked me.",
       },
       {
         type: "paragraph",
-        text: "Find the organization's communication channel. It could be Discord, Slack, Matrix, a mailing list, GitHub Discussions, or whatever the community uses.",
+        text: "There is something ridiculous about typing a bunch of characters into a computer and suddenly having a website, application, API, mobile app, automation, or some weird little tool that did not exist ten minutes ago.",
       },
       {
         type: "paragraph",
-        text: "This matters more than people think. Right now, because of AI, anyone can go to GitHub, pick an issue, ask an LLM for help, and open a PR. Code is not the rare part anymore. The rare part is communication, community engagement, and trust.",
+        text: "Once I realized that, I started building more.",
       },
       {
         type: "paragraph",
-        text: "If mentors or admins know you, if they have seen you attend meetings, ask thoughtful questions, test things properly, and communicate clearly, that matters a lot. Even if you have fewer PRs, you can still stand out more than someone who silently opened many PRs but never attended a meeting, never talked to mentors, never understood the project, and never became part of the community.",
-      },
-      {
-        type: "quote",
-        text: "Open source is not just code. It is communication. It is trust. It is showing up.",
+        text: "And then I made the classic mistake of trying to learn everything at once.",
       },
       {
         type: "heading",
-        text: "Observe the community before picking a project",
+        text: "The technology rabbit hole",
       },
       {
         type: "paragraph",
-        text: "Once you join the community, do not immediately ask someone to assign you an issue. First, observe.",
+        text: "My learning process has never been particularly linear.",
       },
       {
         type: "paragraph",
-        text: "See how the community works. See who the active mentors are. See which mentors are actually excited about their projects. Watch which projects are discussed often. Look at GitHub activity. Are PRs being reviewed? Are issues being discussed? Are maintainers replying? Is the repo active or dead?",
+        text: "I would learn React, then wonder how the backend works. So I learned Node. Then I wanted a database. Then authentication. Then deployment. Then Docker. Then Linux. Then I wondered how mobile apps worked. Then Flutter happened. Then I started looking at Swift and iOS development.",
       },
       {
         type: "paragraph",
-        text: "If the project is active and mentors are present, use your brain and pick that project. Do not pick a dead repo just because it looks easy. You want a project where people are present, because when people are present, you learn faster.",
-      },
-      {
-        type: "heading",
-        text: "Clone the project and feel the real pain",
+        text: "Then AI became impossible to ignore.",
       },
       {
         type: "paragraph",
-        text: "After picking the project, clone it locally. And listen carefully.",
+        text: "So naturally I started digging into AI systems, LLMs, APIs, agents, embeddings, and all the other words that suddenly became part of every software developer's vocabulary.",
       },
       {
         type: "paragraph",
-        text: "The first time you set up a real open-source project locally, it will be painful. Dependencies will break. Docs may be outdated. Some command will fail. Your OS may behave differently. You will fix one thing and another thing will break.",
-      },
-      {
-        type: "quote",
-        text: "It is not hard. It is just new.",
+        text: "The funny thing is that I don't actually see these as completely separate worlds anymore.",
       },
       {
         type: "paragraph",
-        text: "Keep going. Once the project runs locally, do not jump into coding immediately. First, understand the codebase. Use AI properly here. Ask it to explain the project architecture. Ask it to explain the folder structure. Ask it how the data flows. Ask it where the frontend talks to the backend. Ask it to trace one feature end to end. Ask it to make a short internal doc for you.",
+        text: "Frontend connects to backend. Backend connects to databases. Mobile apps connect to APIs. AI connects to backend systems. Backend systems connect to infrastructure. Infrastructure connects everything together.",
       },
       {
         type: "paragraph",
-        text: "Then read that doc with the code open. Do not blindly trust it. Use it as a map. That is how the codebase slowly stops looking like a jungle.",
+        text: "Eventually you stop thinking only in terms of frameworks and start thinking in terms of systems.",
       },
       {
         type: "heading",
-        text: "Stop waiting only for good first issues",
+        text: "I like building actual things",
       },
       {
         type: "paragraph",
-        text: "Most people say, \"Start with good first issues.\" That is okay advice, but it is not the full truth.",
+        text: "Tutorials are useful. Courses are useful. Documentation is obviously useful.",
       },
       {
         type: "paragraph",
-        text: "This is a real project. Not every serious open-source organization has perfectly labeled beginner issues. In fact, many good organizations do not have beginner-friendly issues waiting for you, and that is completely fine.",
+        text: "But at some point you have to close the tutorial and try to build something yourself.",
       },
       {
         type: "paragraph",
-        text: "You have already spent time building your own projects. You have already learned fundamentals. You have to get out of the mindset that you always need a beginner-level issue.",
+        text: "That is where the fun starts.",
       },
       {
         type: "paragraph",
-        text: "Look for real issues. If an issue is opened by a mentor or maintainer, that is a good signal. It usually means the issue is real, relevant, and worth solving. But even then, do not blindly trust any issue.",
+        text: "Because suddenly nobody tells you where the files should go. Nobody tells you what database schema to use. Nobody tells you whether you should use Redis. Nobody tells you whether your API design is terrible. Nobody tells you why your deployment suddenly stopped working.",
       },
       {
         type: "paragraph",
-        text: "Reproduce it locally. That is the key. Can you reproduce the bug on your machine? Does the issue actually exist? Can you trigger the behavior? Can you understand where it breaks?",
+        text: "You have to figure it out.",
       },
       {
         type: "paragraph",
-        text: "If yes, now you have something real to work on. A lot of random issues do not even exist anymore. Sometimes the project changed. Sometimes the bug was already fixed indirectly. Sometimes the reporter misunderstood the behavior. Sometimes the issue is too vague.",
+        text: "That is where I have learned most of what I know.",
       },
       {
         type: "paragraph",
-        text: "So before solving anything, reproduce it. Once you can reproduce an issue locally, you are already ahead of most beginners.",
-      },
-      {
-        type: "heading",
-        text: "Learn only what the issue demands",
-      },
-      {
-        type: "paragraph",
-        text: "You do not need to know everything before contributing. You do not need perfection. You need enough curiosity to solve the problem in front of you.",
-      },
-      {
-        type: "paragraph",
-        text: "Pick an issue. Reproduce it. Then ask yourself what you need to understand to solve it. Maybe you need to understand one API. Maybe one component. Maybe one database flow. Maybe one platform-specific behavior. Maybe one old design decision.",
-      },
-      {
-        type: "paragraph",
-        text: "Learn that specific thing. Search about it. Read the docs. Ask AI. Read old PRs. Look at similar code in the repo. Ask mentors only after doing your homework.",
-      },
-      {
-        type: "paragraph",
-        text: "Eventually, you get more context. Then the issue starts making sense. Then the fix becomes possible.",
-      },
-      {
-        type: "paragraph",
-        text: "And when you repeat this pattern again and again, your context about the codebase increases. Your horizon increases. The codebase becomes less scary.",
-      },
-      {
-        type: "paragraph",
-        text: "That is how open source compounds.",
-      },
-      {
-        type: "heading",
-        text: "A real example from my own journey",
-      },
-      {
-        type: "paragraph",
-        text: "One example from my own journey is a Joplin PR where I had to work on a global shortcut to show or hide Joplin.",
-      },
-      {
-        type: "links",
-        items: [
-          {
-            title: "Joplin PR #15013",
-            href: "https://github.com/laurent22/joplin/pull/15013",
-            description: "Global shortcut work that led into cross-platform desktop behavior.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "When I started, I did not know how to implement global shortcuts properly. I had never deeply worked with that part before. So I studied it. I asked AI. I read the code. I already had some context about the Joplin repo because I had been contributing to it for around a month, and that context helped a lot.",
-      },
-      {
-        type: "paragraph",
-        text: "I knew where things should probably be called from. I knew how the desktop app was structured. I knew Joplin runs on Windows, macOS, and Linux.",
-      },
-      {
-        type: "paragraph",
-        text: "So I also knew one thing clearly: I could not just implement it and test it on one platform. I had to make sure it worked everywhere.",
-      },
-      {
-        type: "paragraph",
-        text: "It had to work on Windows. It had to work on macOS. It had to work on Linux.",
-      },
-      {
-        type: "paragraph",
-        text: "I implemented the shortcut and tested it. It worked on Windows. It worked on macOS. But on Ubuntu Wayland, it did not work.",
-      },
-      {
-        type: "heading",
-        text: "One issue opened ten more doors",
-      },
-      {
-        type: "paragraph",
-        text: "At first, I only knew the surface-level thing: Wayland does not support global shortcuts in the same way because of security reasons in its protocol. That itself was new learning for me.",
-      },
-      {
-        type: "paragraph",
-        text: "I started with, \"I need to implement a shortcut.\" Suddenly, I was learning about X11, Wayland, GNOME, Electron, desktop portals, Linux desktop environments, and platform-specific edge cases.",
-      },
-      {
-        type: "paragraph",
-        text: "This is what open source does. You pick one issue. Then the real world opens ten more doors.",
-      },
-      {
-        type: "paragraph",
-        text: "I talked to the mentor about it. The suggestion was practical: if it works on X11, Windows, and macOS, keep that support. For Wayland, hide the setting if the feature cannot work properly.",
-      },
-      {
-        type: "paragraph",
-        text: "So I did that and opened the PR.",
-      },
-      {
-        type: "image",
-        src: "/blog-images/open-source-ready/mentor-wayland-setting.jpeg",
-        alt: "Discord conversation with a mentor about hiding the global shortcut setting on Wayland.",
-        caption: "Discord conversation with mentor about X11, Wayland, and hiding the setting.",
-        width: 1199,
-        height: 332,
-      },
-      {
-        type: "heading",
-        text: "Then the PR discussion went deeper",
-      },
-      {
-        type: "paragraph",
-        text: "After that, another maintainer pointed something out in the PR itself. He asked why it does not work on Wayland and mentioned that there are desktop portal APIs where this could potentially work.",
-      },
-      {
-        type: "paragraph",
-        text: "And honestly, at that moment, I did not have the complete answer. I only had partial understanding.",
-      },
-      {
-        type: "paragraph",
-        text: "This is where many beginners panic, but this is normal. You will not always have the answer immediately. The important thing is not whether you know everything on day one. The important thing is what you do next.",
-      },
-      {
-        type: "paragraph",
-        text: "Do you defend your half-knowledge? Or do you go back and study? I went back and studied.",
-      },
-      {
-        type: "image",
-        src: "/blog-images/open-source-ready/pr-wayland-question.jpeg",
-        alt: "Joplin pull request discussion where a maintainer asks why global shortcuts do not work on Wayland.",
-        caption: "PR conversation where the maintainer questions Wayland support and points toward portal APIs.",
-        width: 1200,
-        height: 900,
-      },
-      {
-        type: "paragraph",
-        text: "At first, I replied with what I knew. I was on Ubuntu 24 LTS with GNOME 46. Wayland did not support global shortcuts in the way Electron was trying to register them. I found some workaround scripts, but I was not sure if that was the right direction for Joplin.",
-      },
-      {
-        type: "paragraph",
-        text: "Then the maintainer added more context. He mentioned that this could possibly work on Ubuntu 25.10, and that Ubuntu 24.04 uses GNOME 46, which does not support the required API. By the time Joplin 3.6 releases, the latest Ubuntu LTS would be 26.04, giving Ubuntu users a path to upgrade. Other distributions like Fedora, Arch, and newer Debian setups may already have this in common environments.",
-      },
-      {
-        type: "paragraph",
-        text: "Now the problem was deeper. It was no longer just, \"Wayland does not support global shortcuts.\"",
-      },
-      {
-        type: "paragraph",
-        text: "It became: which GNOME version supports the portal? Which Electron version uses it? What does Joplin currently use? What should we do until the ecosystem catches up?",
-      },
-      {
-        type: "paragraph",
-        text: "So I tested more. I literally switched from Ubuntu 24 to Ubuntu 26 beta to test the behavior again.",
-      },
-      {
-        type: "image",
-        src: "/blog-images/open-source-ready/ubuntu-gnome-testing.jpeg",
-        alt: "Pull request comments discussing Ubuntu 25.10, Ubuntu 24.04 GNOME 46, Ubuntu 26.04, and testing GNOME 50.",
-        caption: "Maintainer context about Ubuntu, GNOME versions, and the follow-up test on GNOME 50.",
-        width: 1200,
-        height: 900,
-      },
-      {
-        type: "paragraph",
-        text: "Still, it did not work.",
-      },
-      {
-        type: "paragraph",
-        text: "Then I researched more and found the real detail: GNOME 50 does have org.freedesktop.portal.GlobalShortcuts available, but Electron 40, which Joplin uses, does not use the portal through globalShortcut.register() yet. So even though the portal exists on GNOME 50, Electron still returns false on Wayland.",
-      },
-      {
-        type: "image",
-        src: "/blog-images/open-source-ready/electron-portal-followup.jpeg",
-        alt: "Pull request follow-up noting Electron global shortcut portal support may be gated behind a feature flag.",
-        caption: "Follow-up detail about Electron's GlobalShortcutsPortal feature flag and future Wayland support.",
-        width: 1200,
-        height: 591,
-      },
-      {
-        type: "quote",
-        text: "Not just: Wayland does not work. But: GNOME has the portal, Wayland needs portal-based support, but Electron 40 does not use that portal for globalShortcut.register() yet, so Joplin cannot fully support it through the current Electron behavior.",
-      },
-      {
-        type: "paragraph",
-        text: "That is a much better answer. And I only reached that answer by making a mistake, getting questioned, going back, testing again, and studying more.",
-      },
-      {
-        type: "heading",
-        text: "That is how the learning actually happens",
-      },
-      {
-        type: "paragraph",
-        text: "See how the learning increases point by point?",
-      },
-      {
-        type: "paragraph",
-        text: "First, I learned about global shortcuts. Then I learned that Joplin needs cross-platform behavior. Then I learned that Windows and macOS worked. Then I learned that Ubuntu Wayland did not. Then I learned about Wayland security restrictions. Then I learned about X11. Then I learned about GNOME versions. Then I learned about desktop portals. Then I learned that Electron 40 does not use the portal yet.",
-      },
-      {
-        type: "paragraph",
-        text: "This is the real value. The PR is not just a PR. It expands your horizon.",
-      },
-      {
-        type: "paragraph",
-        text: "And this knowledge stays with you. It will help in the next open-source project. It will help in the next desktop app. It will help in the next bug.",
-      },
-      {
-        type: "paragraph",
-        text: "This is why open source is powerful. You learn by doing real things in real codebases with real constraints.",
-      },
-      {
-        type: "heading",
-        text: "Maintainers respect learning behavior",
-      },
-      {
-        type: "paragraph",
-        text: "You do not need to know everything. You need to be honest. You need to test. You need to communicate. You need to go back and study when you do not know something.",
-      },
-      {
-        type: "paragraph",
-        text: "I made mistakes in that PR. I did not have the full answer immediately. But I kept learning. I tested more. I came back with better context.",
-      },
-      {
-        type: "paragraph",
-        text: "That is what maintainers respect. Not fake confidence. Not AI-generated explanations. Real effort. Real testing. Real learning.",
-      },
-      {
-        type: "heading",
-        text: "Read PR conversations, not just code",
-      },
-      {
-        type: "paragraph",
-        text: "Here are a few more PRs from my own journey that are worth reading if you want to understand how open-source work actually flows.",
-      },
-      {
-        type: "links",
-        items: [
-          {
-            title: "Joplin PR #14582",
-            href: "https://github.com/laurent22/joplin/pull/14582",
-            description: "A feature-request conversation with tradeoffs and review discussion.",
-          },
-          {
-            title: "Joplin PR #14443",
-            href: "https://github.com/laurent22/joplin/pull/14443",
-            description: "A small formatting lesson that reinforces checking your diff before pushing.",
-          },
-          {
-            title: "Sugar Labs Music Blocks PR #6062",
-            href: "https://github.com/sugarlabs/musicblocks/pull/6062",
-            description: "A community-driven PR where meeting context and testing helped the work land quickly.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Feature work is not just writing code. There are tradeoffs. There is back and forth. There is discussion about behavior. You need to understand what maintainers actually want, not just what you want to build.",
-      },
-      {
-        type: "paragraph",
-        text: "Small lessons matter too. In one PR, I learned that VS Code can add formatting changes when you commit. Small thing? Yes. But this is exactly how open source teaches you. You make a change, review points something out, you realize your editor changed extra files, and then you learn to check your diff properly before pushing. That lesson stays.",
-      },
-      {
-        type: "paragraph",
-        text: "For the Sugar Labs Music Blocks PR, we had a discussion in the meeting. Testing mattered a lot. I showed the behavior, discussed it, tested it properly, and because the context was clear, the PR got merged quickly.",
-      },
-      {
-        type: "paragraph",
-        text: "That builds reputation. People remember who tests properly. People remember who communicates. People remember who shows up in meetings. People remember who can be trusted.",
-      },
-      {
-        type: "paragraph",
-        text: "And when selection time comes for programs like GSoC or LFX, reputation matters.",
-      },
-      {
-        type: "heading",
-        text: "Selection is not only about PR count",
-      },
-      {
-        type: "paragraph",
-        text: "This is something beginners need to understand. More PRs does not always mean better.",
-      },
-      {
-        type: "paragraph",
-        text: "Someone with fewer PRs but strong communication, proper testing, consistent community presence, and trust from mentors can stand out more than someone who silently opened many random PRs.",
-      },
-      {
-        type: "paragraph",
-        text: "Mentors are not only selecting code. They are selecting a person they may work with for months.",
-      },
-      {
-        type: "paragraph",
-        text: "So they care about how you communicate. They care about whether you show up. They care about whether you understand the project. They care about whether you can learn when stuck. They care about whether you can take review without ego. They care about whether you are reliable.",
-      },
-      {
-        type: "paragraph",
-        text: "That is why community engagement matters.",
-      },
-      {
-        type: "heading",
-        text: "The actual open-source loop",
-      },
-      {
-        type: "paragraph",
-        text: "By this point, you should understand how solving an issue really goes.",
-      },
-      {
-        type: "paragraph",
-        text: "You do not become good by waiting until you know everything. You become good by entering a real codebase and learning through real problems.",
+        text: "Build something. Get stuck. Search. Read documentation. Ask questions. Use AI. Try something. Break it. Figure out why it broke. Fix it. Realize the fix created another problem. Fix that too.",
       },
       {
         type: "list",
         items: [
-          "Join the community.",
-          "Observe the project.",
-          "Find active mentors.",
-          "Pick an active repo.",
-          "Clone it locally.",
-          "Set it up.",
-          "Use AI to understand the architecture.",
-          "Find a real issue.",
-          "Reproduce it.",
-          "Study what the issue demands.",
-          "Fix it.",
-          "Test it.",
-          "Open the PR.",
-          "Discuss.",
-          "Make mistakes.",
-          "Learn from those mistakes.",
-          "Improve.",
-          "Repeat.",
+          "Have an idea.",
+          "Build it badly.",
+          "Realize why it is bad.",
+          "Learn the missing concept.",
+          "Rewrite it.",
+          "Break it again.",
+          "Eventually make it work.",
         ],
       },
       {
         type: "paragraph",
-        text: "Every time you do this, your horizon increases. Every issue makes the codebase less scary. Every review sharpens your taste. Every mistake teaches you something real. Every conversation improves your engineering communication.",
+        text: "It is not glamorous, but it works.",
+      },
+      {
+        type: "heading",
+        text: "D360 was one of those experiences",
       },
       {
         type: "paragraph",
-        text: "And all of this stays with you. That is how you actually grow in open source.",
+        text: "One of the projects I have worked on is D360, a manpower and services platform where I have been involved with both the product and its mobile applications.",
+      },
+      {
+        type: "paragraph",
+        text: "This was different from just building something for a tutorial because there was an actual product behind it. There were real screens, real APIs, real categories, real services, real users, and real requirements that did not care whether I understood the problem yet.",
+      },
+      {
+        type: "paragraph",
+        text: "That is a very different kind of learning.",
+      },
+      {
+        type: "paragraph",
+        text: "You start caring about things you would normally ignore in a small project. Loading states. Empty states. Error states. API timing. Stale data. Navigation. UI consistency. Image assets. Performance. Mobile behavior. Deployment. The tiny details that look insignificant until a real person actually uses the application.",
+      },
+      {
+        type: "paragraph",
+        text: "I have spent an embarrassing amount of time staring at a screen wondering why some service cards were empty even though the API had technically returned the data.",
+      },
+      {
+        type: "paragraph",
+        text: "And that is exactly the kind of problem I like.",
+      },
+      {
+        type: "paragraph",
+        text: "Not because it is fun when it happens. It absolutely is not. But because those bugs force you to understand what is actually happening instead of assuming the application works because the code looks correct.",
+      },
+      {
+        type: "heading",
+        text: "The part where internships became real",
+      },
+      {
+        type: "paragraph",
+        text: "Eventually, building projects turned into working on real teams.",
+      },
+      {
+        type: "paragraph",
+        text: "And that came with its own reality check.",
+      },
+      {
+        type: "paragraph",
+        text: "When you build alone, you can structure your project however you want. If your folder structure is questionable, nobody cares. If your commit message is terrible, nobody is going to ask you about it. If you spend six hours solving a problem that should have taken twenty minutes, that is your problem.",
+      },
+      {
+        type: "paragraph",
+        text: "Working with other developers changes that.",
+      },
+      {
+        type: "paragraph",
+        text: "Suddenly you have to understand existing code instead of only writing new code. You have to ask questions. You have to communicate. You have to understand someone else's decisions. You have to take feedback. You have to work around things you would have designed differently.",
+      },
+      {
+        type: "paragraph",
+        text: "And honestly, that has probably been one of the most useful parts of becoming a better developer.",
+      },
+      {
+        type: "quote",
+        text: "Writing code is one skill. Working inside someone else's codebase is another.",
+      },
+      {
+        type: "heading",
+        text: "Then I started taking open source seriously",
+      },
+      {
+        type: "paragraph",
+        text: "Open source was another rabbit hole.",
+      },
+      {
+        type: "paragraph",
+        text: "At first, open source looked intimidating. You open a large repository and suddenly there are hundreds of folders, thousands of files, issues, pull requests, discussions, CI pipelines, contributors, maintainers, and documentation everywhere.",
+      },
+      {
+        type: "paragraph",
+        text: "And your first thought is basically: 'What the hell am I looking at?'",
+      },
+      {
+        type: "paragraph",
+        text: "But that feeling is useful.",
+      },
+      {
+        type: "paragraph",
+        text: "Because you eventually realize that nobody magically understands a massive codebase the moment they clone it. You build context slowly.",
+      },
+      {
+        type: "paragraph",
+        text: "You find one feature. You trace it. You understand one part of the architecture. You fix one issue. You read one pull request. You talk to one maintainer. You learn one weird platform-specific behavior.",
+      },
+      {
+        type: "paragraph",
+        text: "Then another piece starts making sense.",
+      },
+      {
+        type: "paragraph",
+        text: "And another.",
+      },
+      {
+        type: "paragraph",
+        text: "Eventually the giant repository stops looking like a wall of code and starts looking like a system.",
+      },
+      {
+        type: "heading",
+        text: "Joplin taught me this very quickly",
+      },
+      {
+        type: "paragraph",
+        text: "One of the open-source projects I have spent time contributing to is Joplin.",
+      },
+      {
+        type: "paragraph",
+        text: "One contribution involved global shortcuts for showing or hiding Joplin. Sounds simple enough.",
+      },
+      {
+        type: "paragraph",
+        text: "It was not.",
+      },
+      {
+        type: "paragraph",
+        text: "Windows worked. macOS worked. Then Linux Wayland happened.",
+      },
+      {
+        type: "paragraph",
+        text: "Suddenly I was learning about X11, Wayland, GNOME, Electron, desktop portals, security restrictions, platform differences, and how software that looks like one feature from the user's perspective can actually depend on a ridiculous number of layers underneath.",
+      },
+      {
+        type: "paragraph",
+        text: "That is one of my favorite things about software engineering.",
+      },
+      {
+        type: "paragraph",
+        text: "You start with a tiny question and somehow end up learning an entirely new part of computing.",
+      },
+      {
+        type: "paragraph",
+        text: "I did not know everything when I started working on that issue. I got things wrong. I got questions from maintainers. I tested again. I researched more. I came back with better answers.",
+      },
+      {
+        type: "paragraph",
+        text: "That cycle is what I want my engineering career to look like.",
+      },
+      {
+        type: "heading",
+        text: "AI changed how I learn",
+      },
+      {
+        type: "paragraph",
+        text: "I also happen to be learning all of this during a pretty ridiculous time to be a software developer.",
+      },
+      {
+        type: "paragraph",
+        text: "AI can now generate code incredibly quickly.",
+      },
+      {
+        type: "paragraph",
+        text: "That is amazing.",
+      },
+      {
+        type: "paragraph",
+        text: "It is also dangerous if you use it incorrectly.",
+      },
+      {
+        type: "paragraph",
+        text: "I use AI a lot. I ask it to explain code. I use it when I am stuck. I use it to explore unfamiliar repositories. I use it to compare approaches. I use it to generate starting points. I use it to help me debug.",
+      },
+      {
+        type: "paragraph",
+        text: "But I do not want AI to replace the part where I understand what I am doing.",
+      },
+      {
+        type: "paragraph",
+        text: "There is a huge difference between asking an AI to write a function and being able to explain why that function belongs there, what assumptions it makes, what could break, and how it fits into the rest of the system.",
+      },
+      {
+        type: "paragraph",
+        text: "The first makes you faster.",
+      },
+      {
+        type: "paragraph",
+        text: "The second makes you better.",
+      },
+      {
+        type: "quote",
+        text: "AI is ridiculously good at generating answers. Your job is to become good at knowing which answers are actually worth using.",
+      },
+      {
+        type: "heading",
+        text: "I am especially interested in AI engineering",
+      },
+      {
+        type: "paragraph",
+        text: "AI is one of the areas I want to go much deeper into.",
+      },
+      {
+        type: "paragraph",
+        text: "Not just using an LLM API and calling the project an AI application.",
+      },
+      {
+        type: "paragraph",
+        text: "I want to understand the engineering around AI systems. How applications use models. How context is managed. How retrieval works. How agents are structured. How tools are connected. How systems are evaluated. How latency and cost are controlled. How you build something that works reliably instead of something that looks cool in a five-minute demo.",
+      },
+      {
+        type: "paragraph",
+        text: "There is a huge amount I still do not know here.",
+      },
+      {
+        type: "paragraph",
+        text: "Which is exactly why I want to learn it.",
+      },
+      {
+        type: "heading",
+        text: "I also keep ending up in mobile development",
+      },
+      {
+        type: "paragraph",
+        text: "Somehow I also ended up building mobile applications.",
+      },
+      {
+        type: "paragraph",
+        text: "Flutter became one of those technologies where I initially thought, 'Okay, this should be straightforward.' Then I actually started building things and discovered an entirely new set of problems.",
+      },
+      {
+        type: "paragraph",
+        text: "State management. Navigation. Responsive layouts. Platform differences. App lifecycle. API loading. Animations. Performance. Android. iOS. App Store publishing.",
+      },
+      {
+        type: "paragraph",
+        text: "Apparently making an application is only half the battle. Getting that application onto someone's phone is another boss fight entirely.",
+      },
+      {
+        type: "paragraph",
+        text: "That is also how I ended up learning about the iOS side of development and the Apple ecosystem. I had built applications before, but publishing them properly is its own skill.",
+      },
+      {
+        type: "heading",
+        text: "My projects are basically evidence of me being curious",
+      },
+      {
+        type: "paragraph",
+        text: "If you look through my projects, you will probably notice that they do not all belong to one perfectly consistent category.",
+      },
+      {
+        type: "paragraph",
+        text: "That is intentional.",
+      },
+      {
+        type: "paragraph",
+        text: "I like experimenting.",
+      },
+      {
+        type: "paragraph",
+        text: "Sometimes I want to build a full-stack web application. Sometimes I want to make a mobile app. Sometimes I want to mess around with an AI API. Sometimes I want to understand backend architecture. Sometimes I see a problem and think, 'I could probably build something for that.'",
+      },
+      {
+        type: "paragraph",
+        text: "That curiosity has taken me into places I would not have reached if I had forced myself to stay inside one stack.",
+      },
+      {
+        type: "heading",
+        text: "YesBroker",
+      },
+      {
+        type: "paragraph",
+        text: "One of the products I am building is YesBroker.",
+      },
+      {
+        type: "paragraph",
+        text: "It is another example of the kind of thing I like doing: taking an actual idea and trying to turn it into a real product instead of stopping at a pretty landing page.",
+      },
+      {
+        type: "paragraph",
+        text: "The interesting part is never just writing the UI. It is figuring out the actual product flow. What happens when a user does this? What data needs to exist? What should the backend return? What happens when the request fails? What happens when the user does something unexpected?",
+      },
+      {
+        type: "paragraph",
+        text: "Those questions are where software starts becoming engineering.",
+      },
+      {
+        type: "heading",
+        text: "I still have a lot to learn",
+      },
+      {
+        type: "paragraph",
+        text: "This entire introduction probably makes me sound like I have everything figured out.",
+      },
+      {
+        type: "paragraph",
+        text: "I don't.",
+      },
+      {
+        type: "paragraph",
+        text: "There are still entire areas of software engineering where I feel like a beginner.",
+      },
+      {
+        type: "paragraph",
+        text: "There are backend concepts I want to understand better. There are distributed systems concepts I have barely touched. There is infrastructure I want to learn. There are deeper database concepts I want to understand. There is systems programming. There is Go. There is more C++. There is deeper Python. There is AI infrastructure. There are operating systems. There is networking.",
+      },
+      {
+        type: "paragraph",
+        text: "The list is basically infinite.",
+      },
+      {
+        type: "paragraph",
+        text: "And that is fine.",
+      },
+      {
+        type: "paragraph",
+        text: "I would rather be genuinely curious than pretend I already know everything.",
+      },
+      {
+        type: "heading",
+        text: "What I actually want to become",
+      },
+      {
+        type: "paragraph",
+        text: "I do not want to become the person who knows the most frameworks.",
+      },
+      {
+        type: "paragraph",
+        text: "Frameworks change too quickly for that to even be a useful goal.",
+      },
+      {
+        type: "paragraph",
+        text: "I want to become the person who can walk into an unfamiliar problem and figure it out.",
+      },
+      {
+        type: "paragraph",
+        text: "Give me a codebase I have never seen before. I want to be able to understand it.",
+      },
+      {
+        type: "paragraph",
+        text: "Give me an API problem I have never solved. I want to know how to investigate it.",
+      },
+      {
+        type: "paragraph",
+        text: "Give me a bug that makes no sense. I want to know how to reproduce it and narrow it down.",
+      },
+      {
+        type: "paragraph",
+        text: "Give me a technology I have never used. I want to be able to learn enough to build something with it.",
+      },
+      {
+        type: "paragraph",
+        text: "That is the skill I care about most.",
+      },
+      {
+        type: "quote",
+        text: "I don't want to know every answer. I want to become very good at finding the answer.",
+      },
+      {
+        type: "heading",
+        text: "Why I made this portfolio",
+      },
+      {
+        type: "paragraph",
+        text: "This portfolio is basically a collection of evidence that I have been building things, learning things, breaking things, and occasionally figuring things out.",
+      },
+      {
+        type: "paragraph",
+        text: "I did not want it to just be a collection of buzzwords.",
+      },
+      {
+        type: "paragraph",
+        text: "React. Node. AI. Flutter. Docker. Git. Cool.",
+      },
+      {
+        type: "paragraph",
+        text: "But what did I actually do with them?",
+      },
+      {
+        type: "paragraph",
+        text: "That is what I want this portfolio to show.",
+      },
+      {
+        type: "paragraph",
+        text: "The projects matter. The experiments matter. The open-source contributions matter. The weird bugs matter. The things that did not work matter too.",
+      },
+      {
+        type: "paragraph",
+        text: "Because those are the things that actually tell the story.",
+      },
+      {
+        type: "heading",
+        text: "There is probably going to be a lot more here",
+      },
+      {
+        type: "paragraph",
+        text: "This is not supposed to be the final version of my story.",
+      },
+      {
+        type: "paragraph",
+        text: "Hopefully, it becomes outdated very quickly.",
+      },
+      {
+        type: "paragraph",
+        text: "I want to keep building. I want to contribute to more open source. I want to understand AI systems more deeply. I want to get much better at backend engineering. I want to build products that people actually use. I want to understand lower-level systems. I want to work with people who are much better than me and steal all their knowledge by asking too many questions.",
+      },
+      {
+        type: "paragraph",
+        text: "And I want to keep documenting some of that journey here.",
+      },
+      {
+        type: "heading",
+        text: "So, yeah. That's me.",
+      },
+      {
+        type: "paragraph",
+        text: "I'm Aakash.",
+      },
+      {
+        type: "paragraph",
+        text: "I'm a software developer who likes building things, learning random technologies, going down engineering rabbit holes, contributing to open source, experimenting with AI, and occasionally spending several hours debugging something that turned out to be one missing line.",
+      },
+      {
+        type: "paragraph",
+        text: "I'm still early in the journey.",
+      },
+      {
+        type: "paragraph",
+        text: "I don't have everything figured out.",
+      },
+      {
+        type: "paragraph",
+        text: "But I know I like this.",
+      },
+      {
+        type: "paragraph",
+        text: "I like opening a blank editor and turning an idea into something real.",
+      },
+      {
+        type: "paragraph",
+        text: "I like the moment when a bug finally makes sense.",
+      },
+      {
+        type: "paragraph",
+        text: "I like reading code written by people much smarter than me and slowly understanding why they made the decisions they made.",
+      },
+      {
+        type: "paragraph",
+        text: "I like learning something difficult and then realizing that it was not actually impossible. It was just unfamiliar.",
+      },
+      {
+        type: "paragraph",
+        text: "And most importantly, I like shipping.",
+      },
+      {
+        type: "quote",
+        text: "Build things. Break things. Learn from them. Then ship again.",
+      },
+      {
+        type: "paragraph",
+        text: "That's pretty much the philosophy behind everything I am doing right now.",
+      },
+      {
+        type: "paragraph",
+        text: "Anyway, if you made it this far, thanks for reading my completely unnecessary amount of yapping.",
+      },
+      {
+        type: "paragraph",
+        text: "Now go look at the projects.",
       },
     ],
   },

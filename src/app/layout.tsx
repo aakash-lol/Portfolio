@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Doto, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,44 +24,52 @@ const doto = Doto({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://ashutoshx7.me"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://aakashtutlani.me"
   ),
-  title: "Ashutoshx7",
+
+  title: "Aakash Tutlani's Portfolio",
+
   description:
-    "Full stack developer building clean, modern websites and apps with a focus on design, functionality, and attention to detail.",
+    "Software developer building full-stack applications, AI systems, backend services, and mobile experiences.",
+
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.png", type: "image/png", sizes: "256x256" },
     ],
-    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
-  },
-  openGraph: {
-    title: "Ashutoshx7",
-    description:
-      "Full stack developer building clean, modern websites and apps.",
-    url: "https://ashutoshx7.me",
-    siteName: "Ashutoshx7",
-    type: "website",
-    images: [
+    apple: [
       {
-        url: "https://ashutoshx7.me/og-image.jpg",
-        secureUrl: "https://ashutoshx7.me/og-image.jpg",
-        width: 1024,
-        height: 576,
-        type: "image/jpeg",
-        alt: "Ashutoshx7 - Engineer / Artist Portfolio",
+        url: "/apple-icon.png",
+        type: "image/png",
+        sizes: "180x180",
       },
     ],
   },
+
+  openGraph: {
+    title: "Aakash Tutlani — Portfolio",
+    description:
+      "Software developer building full-stack applications, AI systems, backend services, and mobile experiences.",
+    url: "https://aakashtutlani.me",
+    siteName: "Aakash Tutlani",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1024,
+        height: 576,
+        type: "image/jpeg",
+        alt: "Aakash Tutlani — Software Developer Portfolio",
+      },
+    ],
+  },
+
   twitter: {
     card: "summary_large_image",
-    title: "Ashutoshx7",
+    title: "Aakash Tutlani — Portfolio",
     description:
-      "Full stack developer building clean, modern websites and apps.",
-    site: "@Ashutosh_7x7",
-    creator: "@Ashutosh_7x7",
-    images: ["https://ashutoshx7.me/og-image.jpg"],
+      "Software developer building full-stack applications, AI systems, backend services, and mobile experiences.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -85,6 +93,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
         <Analytics />
         <SpeedInsights />
       </body>

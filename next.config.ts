@@ -14,20 +14,6 @@ const nextConfig: NextConfig = {
         pathname: "/media/**",
         search: "",
       },
-      {
-        protocol: "https",
-        hostname: "github.com",
-        port: "",
-        pathname: "/ashutoshx7.png",
-        search: "",
-      },
-      {
-        protocol: "https",
-        hostname: "unavatar.io",
-        port: "",
-        pathname: "/twitter/**",
-        search: "",
-      },
     ],
   },
 };

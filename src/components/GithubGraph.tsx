@@ -36,11 +36,13 @@ export function GithubGraph() {
   const emptyWeeks = useMemo<ContributionWeek[]>(() => {
     const today = new Date();
     const start = new Date(today);
+
     start.setDate(today.getDate() - 370);
 
     return Array.from({ length: 53 }, (_, weekIndex) => ({
       contributionDays: Array.from({ length: 7 }, (_, dayIndex) => {
         const date = new Date(start);
+
         date.setDate(start.getDate() + weekIndex * 7 + dayIndex);
 
         return {
@@ -53,12 +55,17 @@ export function GithubGraph() {
 
   useEffect(() => {
     const fetchContributions = async () => {
-      const cacheKey = "github_contributions";
-      const cachedData = typeof window !== "undefined" ? localStorage.getItem(cacheKey) : null;
-      
+      const cacheKey = "github_contributions_aakash_lol";
+
+      const cachedData =
+        typeof window !== "undefined"
+          ? localStorage.getItem(cacheKey)
+          : null;
+
       if (cachedData) {
         try {
           const parsed = JSON.parse(cachedData);
+
           setWeeks(parsed.weeks);
           setMonths(parsed.months || []);
           setTotalContributions(parsed.totalContributions);
@@ -70,7 +77,7 @@ export function GithubGraph() {
 
       const query = `
         query {
-          user(login: "Ashutoshx7") {
+          user(login: "aakash-lol") {
             contributionsCollection {
               contributionCalendar {
                 totalContributions
@@ -99,22 +106,31 @@ export function GithubGraph() {
         });
 
         const data = await response.json();
-        const calendar = data?.data?.user?.contributionsCollection?.contributionCalendar;
-        
+
+        const calendar =
+          data?.data?.user?.contributionsCollection?.contributionCalendar;
+
         if (calendar) {
           setWeeks(calendar.weeks);
           setMonths(calendar.months);
           setTotalContributions(calendar.totalContributions);
+
           if (typeof window !== "undefined") {
-            localStorage.setItem(cacheKey, JSON.stringify({
-              weeks: calendar.weeks,
-              months: calendar.months,
-              totalContributions: calendar.totalContributions
-            }));
+            localStorage.setItem(
+              cacheKey,
+              JSON.stringify({
+                weeks: calendar.weeks,
+                months: calendar.months,
+                totalContributions: calendar.totalContributions,
+              })
+            );
           }
         }
       } catch (error) {
-        console.error("Failed to fetch GitHub contributions", error);
+        console.error(
+          "Failed to fetch GitHub contributions",
+          error
+        );
       } finally {
         setLoading(false);
       }
@@ -149,6 +165,7 @@ export function GithubGraph() {
     if (count <= 3) return 1;
     if (count <= 6) return 2;
     if (count <= 9) return 3;
+
     return 4;
   };
 
@@ -167,6 +184,7 @@ export function GithubGraph() {
       | React.FocusEvent<HTMLDivElement>
   ) => {
     const rect = event.currentTarget.getBoundingClientRect();
+
     setTooltip({
       count: day.contributionCount,
       date: formatDate(day.date),
@@ -175,16 +193,39 @@ export function GithubGraph() {
     });
   };
 
-  const defaultMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const displayMonths = months.length > 0 ? months.map(m => m.name.substring(0, 3)) : defaultMonths;
-  const graphWeeks = weeks.length > 0 ? weeks : emptyWeeks;
+  const defaultMonths = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const displayMonths =
+    months.length > 0
+      ? months.map((month) => month.name.substring(0, 3))
+      : defaultMonths;
+
+  const graphWeeks =
+    weeks.length > 0 ? weeks : emptyWeeks;
+
   const graphStatus =
     loading && totalContributions === 0
       ? "Loading GitHub contribution activity"
       : `${totalContributions} GitHub activities in the last year`;
+
   const dashedLineMask = {
-    maskImage: "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
-    WebkitMaskImage: "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
+    maskImage:
+      "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
+    WebkitMaskImage:
+      "repeating-linear-gradient(to right, black 0, black 1px, transparent 1px, transparent 6px)",
   };
 
   return (
@@ -193,124 +234,193 @@ export function GithubGraph() {
       aria-labelledby="github-activity-title"
       aria-describedby="github-activity-summary"
     >
-      {/* Top full-width dashed line */}
       <div
         className="absolute top-0 left-[-100vw] right-[-100vw] h-0 border-t border-black/30 pointer-events-none dark:border-white/[0.15]"
         style={dashedLineMask}
       />
+
       <div className="absolute top-0 -left-4 z-20 size-[2px] -translate-x-1/2 -translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
+
       <div className="absolute top-0 -right-4 z-20 size-[2px] translate-x-1/2 -translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
 
-      {/* Heading */}
       <div className="relative py-2">
         <div className="flex items-center justify-between gap-3">
-          <h2 id="github-activity-title" className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
+          <h2
+            id="github-activity-title"
+            className="text-[18px] font-bold text-zinc-900 dark:text-zinc-100 tracking-tight"
+          >
             GitHub Activity
           </h2>
-          <p className="text-right text-[11px] text-zinc-500 dark:text-zinc-400" aria-live="polite">
+
+          <p
+            className="text-right text-[11px] text-zinc-500 dark:text-zinc-400"
+            aria-live="polite"
+          >
             {graphStatus}
           </p>
         </div>
 
-        {/* Bottom full-width dashed line under heading */}
         <div
           className="absolute bottom-0 left-[-100vw] right-[-100vw] h-0 border-b border-black/30 pointer-events-none dark:border-white/[0.15]"
           style={dashedLineMask}
         />
+
         <div className="absolute bottom-0 -left-4 z-20 size-[2px] -translate-x-1/2 translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
+
         <div className="absolute bottom-0 -right-4 z-20 size-[2px] translate-x-1/2 translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
       </div>
 
-      <p id="github-activity-summary" className="sr-only">
-        Calendar heatmap showing daily GitHub contribution counts for Ashutoshx7 over the last year. Scroll horizontally to inspect all weeks.
+      <p
+        id="github-activity-summary"
+        className="sr-only"
+      >
+        Calendar heatmap showing daily GitHub contribution counts for Aakash Tutlani over the last year.
       </p>
 
-      {/* Graph content — sits directly on the page background */}
       <div className="relative py-4">
         <div className="w-full">
           <div>
             <div className="mb-2 flex w-full justify-between text-[10px] text-zinc-400 dark:text-zinc-500">
               {displayMonths.map((month, index) => (
-                <span key={`${month}-${index}`}>{month}</span>
+                <span key={`${month}-${index}`}>
+                  {month}
+                </span>
               ))}
             </div>
 
-            <div className="grid grid-cols-[repeat(53,minmax(0,1fr))] gap-x-[2px]" role="img" aria-label={graphStatus}>
+            <div
+              className="grid grid-cols-[repeat(53,minmax(0,1fr))] gap-x-[2px]"
+              role="img"
+              aria-label={graphStatus}
+            >
               {loading && weeks.length === 0
-                ? Array.from({ length: 53 }).map((_, colIndex) => (
-                    <div key={colIndex} className="flex flex-col gap-[2px]">
-                      {Array.from({ length: 7 }).map((__, rowIndex) => (
-                        <div
-                          key={rowIndex}
-                          className="aspect-square w-full animate-pulse rounded-[2px] bg-zinc-100 dark:bg-zinc-800"
-                        />
-                      ))}
-                    </div>
-                  ))
-                : graphWeeks.map((week, colIndex) => (
-                    <div key={colIndex} className="flex flex-col gap-[2px]">
-                      {colIndex === 0 &&
-                        Array.from({ length: 7 - week.contributionDays.length }).map((_, i) => (
-                          <div key={`empty-top-${i}`} className="aspect-square w-full rounded-[2px] bg-transparent" />
-                        ))}
+                ? Array.from({ length: 53 }).map(
+                    (_, colIndex) => (
+                      <div
+                        key={colIndex}
+                        className="flex flex-col gap-[2px]"
+                      >
+                        {Array.from({ length: 7 }).map(
+                          (_, rowIndex) => (
+                            <div
+                              key={rowIndex}
+                              className="aspect-square w-full animate-pulse rounded-[2px] bg-zinc-100 dark:bg-zinc-800"
+                            />
+                          )
+                        )}
+                      </div>
+                    )
+                  )
+                : graphWeeks.map(
+                    (week, colIndex) => (
+                      <div
+                        key={colIndex}
+                        className="flex flex-col gap-[2px]"
+                      >
+                        {colIndex === 0 &&
+                          Array.from({
+                            length:
+                              7 -
+                              week.contributionDays.length,
+                          }).map((_, i) => (
+                            <div
+                              key={`empty-top-${i}`}
+                              className="aspect-square w-full rounded-[2px] bg-transparent"
+                            />
+                          ))}
 
-                      {week.contributionDays.map((day) => {
-                        const level = getLevel(day.contributionCount);
-                        const color = contributionLevels[level];
+                        {week.contributionDays.map(
+                          (day) => {
+                            const level = getLevel(
+                              day.contributionCount
+                            );
 
-                        return (
-                          <div
-                            key={day.date}
-                            aria-hidden="true"
-                            aria-label={`${day.contributionCount} contributions on ${formatDate(day.date)}`}
-                            className={`aspect-square w-full rounded-[2px] opacity-80 outline-none transition-[opacity,transform] hover:scale-125 hover:opacity-100 dark:opacity-70 dark:hover:opacity-100 ${color.cell}`}
-                            onMouseEnter={(event) => showTooltip(day, event)}
-                            onMouseLeave={() => setTooltip(null)}
-                          />
-                        );
-                      })}
+                            const color =
+                              contributionLevels[level];
 
-                      {colIndex !== 0 &&
-                        week.contributionDays.length < 7 &&
-                        Array.from({ length: 7 - week.contributionDays.length }).map((_, i) => (
-                          <div key={`empty-bottom-${i}`} className="aspect-square w-full rounded-[2px] bg-transparent" />
-                        ))}
-                    </div>
-                  ))}
+                            return (
+                              <div
+                                key={day.date}
+                                aria-hidden="true"
+                                aria-label={`${day.contributionCount} contributions on ${formatDate(day.date)}`}
+                                className={`aspect-square w-full rounded-[2px] opacity-80 outline-none transition-[opacity,transform] hover:scale-125 hover:opacity-100 dark:opacity-70 dark:hover:opacity-100 ${color.cell}`}
+                                onMouseEnter={(event) =>
+                                  showTooltip(
+                                    day,
+                                    event
+                                  )
+                                }
+                                onMouseLeave={() =>
+                                  setTooltip(null)
+                                }
+                              />
+                            );
+                          }
+                        )}
+
+                        {colIndex !== 0 &&
+                          week.contributionDays.length <
+                            7 &&
+                          Array.from({
+                            length:
+                              7 -
+                              week.contributionDays.length,
+                          }).map((_, i) => (
+                            <div
+                              key={`empty-bottom-${i}`}
+                              className="aspect-square w-full rounded-[2px] bg-transparent"
+                            />
+                          ))}
+                      </div>
+                    )
+                  )}
             </div>
           </div>
         </div>
 
         <div className="mt-3 flex items-center justify-between gap-3">
-          <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Less active</span>
+          <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+            Less active
+          </span>
+
           <div className="flex shrink-0 items-center gap-1.5">
-            {contributionLevels.map((level, index) => (
-              <div
-                key={index}
-                aria-hidden="true"
-                className={`size-2 rounded-[2px] opacity-80 dark:opacity-70 ${level.cell}`}
-              />
-            ))}
-            <span className="text-[11px] text-zinc-500 dark:text-zinc-400">More active</span>
+            {contributionLevels.map(
+              (level, index) => (
+                <div
+                  key={index}
+                  aria-hidden="true"
+                  className={`size-2 rounded-[2px] opacity-80 dark:opacity-70 ${level.cell}`}
+                />
+              )
+            )}
+
+            <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+              More active
+            </span>
           </div>
         </div>
 
         {tooltip && (
           <div
             className="pointer-events-none fixed z-[100] -translate-x-1/2 -translate-y-[calc(100%+8px)] rounded-md border border-zinc-200 bg-white px-2.5 py-1.5 text-[11px] font-medium text-zinc-700 shadow-lg shadow-zinc-950/10 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-200 dark:shadow-black/40"
-            style={{ left: tooltip.x, top: tooltip.y }}
+            style={{
+              left: tooltip.x,
+              top: tooltip.y,
+            }}
           >
-            {tooltip.count} contributions on {tooltip.date}
+            {tooltip.count} contributions on{" "}
+            {tooltip.date}
           </div>
         )}
       </div>
 
-      {/* Bottom full-width dashed line */}
       <div
         className="absolute bottom-0 left-[-100vw] right-[-100vw] h-0 border-b border-black/30 pointer-events-none dark:border-white/[0.15]"
         style={dashedLineMask}
       />
+
       <div className="absolute bottom-0 -left-4 z-20 size-[2px] -translate-x-1/2 translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
+
       <div className="absolute bottom-0 -right-4 z-20 size-[2px] translate-x-1/2 translate-y-1/2 bg-black/50 pointer-events-none dark:bg-white/[0.25]" />
     </section>
   );
