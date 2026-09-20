@@ -2,6 +2,7 @@
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CommandMenu } from "@/components/command-menu";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { RightNavbar } from "@/components/RightNavbar";
 import { FooterBackground } from "@/components/FooterBackground";
 import Link from "next/link";
@@ -59,11 +60,42 @@ const experiences: ExperienceData[] = [
   },
 
   {
+    title: "D360",
+    role: "Software Developer",
+    dates: "Aug 2026 - Present",
+    location: "Remote",
+    src: "/Experience-image/HB.png",
+    imageFit: "contain",
+    imageZoom: 1,
+    description: `
+      Develop and maintain Flutter-based mobile applications for customers and service providers
+      Build and improve application UI, service categories, home screens, and reusable Flutter components
+      Integrate frontend screens with backend APIs and dynamic service/category data
+      Debug application issues involving API loading, state updates, UI rendering, and production behavior
+      Work on real-world product features across customer-facing and service-provider applications
+    `,
+    tech: [
+      "Flutter",
+      "Dart",
+      "GetX",
+      "REST APIs",
+      "Android",
+      "iOS",
+    ],
+    metrics: [
+      { label: "Role", value: "Developer" },
+      { label: "Platform", value: "Flutter" },
+      { label: "Focus", value: "Mobile Apps" },
+      { label: "Status", value: "Present" },
+    ],
+  },
+
+  {
     title: "Stealth Startup",
     role: "AI Engineering Intern",
     dates: "May 2026 - Jul 2026",
     location: "Remote",
-    src: "/Experience-image/AI.png",
+    src: "/Experience-image/N.png",
     imageFit: "contain",
     imageZoom: 1,
     description: `
@@ -156,9 +188,9 @@ const experiences: ExperienceData[] = [
     role: "Open Source Contributor",
     dates: "2025 - Present",
     location: "Remote",
-    src: "/Experience-image/pngegg (1).png",
+    src: "/Experience-image/N.png",
     imageFit: "contain",
-    imageZoom: 1.5,
+    imageZoom: 1,
     description: `
       Contribute bug fixes, features, documentation, testing improvements, and code reviews across open source projects
       Work with unfamiliar codebases and Git workflows while maintaining readable and maintainable implementations
@@ -276,6 +308,7 @@ export default function AllExperiencePage() {
       {/* Cell 1: Experience Timeline */}
       <div className="absolute left-0 right-0 md:left-[30%] md:right-[30%] top-0 h-[var(--experience-hero)] -z-0 pointer-events-auto overflow-hidden">
         <FooterBackground />
+        <ExperienceTimeline onSelect={selectExperience} />
       </div>
 
       {/* Cell 2: Header with Back Button + Title + Controls */}
