@@ -51,7 +51,7 @@ const experiences: ExperienceData[] = [
   {
     title: "NidiaLabs",
     role: "AI Engineering Intern",
-    dates: "May 2026 - Jul 2026",
+    dates: "May 2026 - Present",
     location: "Remote",
     src: "/Experience-image/N.png",
     imageFit: "contain",
